@@ -104,6 +104,7 @@ class MainFrame(wx.Frame):
         # end wxGlade
 
     def loadData(self):
+        self.mainGrid.ClearGrid()
         dataBase = DataBase()
         cur = dataBase.fetch()
         data = cur.fetchall()
@@ -120,6 +121,7 @@ class MainFrame(wx.Frame):
             cell = -1
             row = row + 1
         row = 0
+        self.mainGrid.Refresh()
         
 
     def onAddNew(self, event):  # wxGlade: MainFrame.<event_handler>

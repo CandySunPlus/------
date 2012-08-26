@@ -34,6 +34,14 @@ class DataBase():
         cur.execute(sql)
         return cur
 
+    def update(self, plants, index):
+        sql = 'UPDATE main.Plants SET num="%s", username="%s", address="%s", telephone="%s", type="%s", info="%s" WHERE id=%s' % (plants.number, plants.username, plants.address, plants.telephone, plants.type, plants.info, index)
+        self.db.execute(sql)
+
+    def delete(self, index):
+        sql = 'DELETE FROM main.Plants WHERE id=%s' % (index)
+        self.db.execute(sql)
+
 class Plants():
     def __init__(self):
         self.number = ''

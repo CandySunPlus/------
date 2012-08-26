@@ -36,6 +36,9 @@ class MainGrid(wx.grid.Grid):
         except Exception:
             return None
 
+    def deleteRowAttachmentData(self, row):
+        del self.rowAttachmentData[row]
+
     def resetRowAttachmentData(self):
         self.rowAttachmentData = []
 
@@ -47,13 +50,15 @@ class MainGrid(wx.grid.Grid):
         event.Skip()
         index = self.getRowAttachmentData(event.GetRow())
 
-        if index == None:
-            return None
-        else:
+        if index != None:
             plant = Plants.get(index)
             editDialog = EditDialog(self.GetParent())
+            editDialog.row = event.GetRow()
             editDialog.setPlant(plant)
+            editDialog.id = index
             editDialog.ShowModal()
             editDialog.Destroy()
+        else:
+            return None
 
 
