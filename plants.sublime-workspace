@@ -1,0 +1,553 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"GetSiz",
+				"GetSizer  (function)"
+			],
+			[
+				"Set",
+				"SetBorder"
+			],
+			[
+				"labelDa",
+				"labelDateTitle  (variable)"
+			],
+			[
+				"G",
+				"GetSizer  (function)"
+			],
+			[
+				"__do",
+				"__do_layout  (function)"
+			],
+			[
+				"show",
+				"ShowModal  (function)"
+			],
+			[
+				"pro",
+				"proportions"
+			],
+			[
+				"Main",
+				"mainGrid"
+			],
+			[
+				"cell",
+				"cellWidth"
+			],
+			[
+				"cel",
+				"cellWidth"
+			],
+			[
+				"mai",
+				"mainWidth"
+			],
+			[
+				"gri",
+				"gridSize"
+			],
+			[
+				"gr",
+				"gridSize"
+			],
+			[
+				"fi",
+				"fitGrid"
+			],
+			[
+				"main",
+				"mainSize"
+			],
+			[
+				"Get",
+				"GetSize  (function)"
+			],
+			[
+				"par",
+				"GetParent  (function)"
+			],
+			[
+				"pa",
+				"pageNum"
+			],
+			[
+				"add",
+				"address"
+			],
+			[
+				"men",
+				"menuExit"
+			],
+			[
+				"Ev",
+				"EVT_MENU"
+			],
+			[
+				"Add",
+				"AddDialog"
+			],
+			[
+				"__",
+				"__init__  (function)"
+			],
+			[
+				"file",
+				"fileMenu"
+			],
+			[
+				"menu",
+				"menuOpen"
+			],
+			[
+				"E",
+				"EVT_MENU"
+			],
+			[
+				"Show",
+				"ShowModal"
+			],
+			[
+				"App",
+				"Append"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "MainFrame.py",
+			"settings":
+			{
+				"buffer_size": 4820,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "MainGrid.py",
+			"settings":
+			{
+				"buffer_size": 1078,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "EditDialog.py",
+			"settings":
+			{
+				"buffer_size": 527,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "main.py",
+			"settings":
+			{
+				"buffer_size": 487,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "AddDialog.py",
+			"settings":
+			{
+				"buffer_size": 3338,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 375.0,
+		"selected_items":
+		[
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"py",
+				"Set Syntax: Python"
+			],
+			[
+				"ipython",
+				"Set Syntax: Regular Expressions (Python)"
+			],
+			[
+				"pytho",
+				"Set Syntax: Python"
+			],
+			[
+				"php",
+				"Set Syntax: PHP"
+			],
+			[
+				"c",
+				"Color picker"
+			],
+			[
+				"co",
+				"Color picker"
+			],
+			[
+				"i",
+				"InputHelper"
+			],
+			[
+				"in",
+				"InputHelper"
+			],
+			[
+				"",
+				"About"
+			]
+		],
+		"width": 522.0
+	},
+	"console":
+	{
+		"height": 132.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/home/nik/document/plants/db.db3",
+		"/home/nik/document/plants/plants~",
+		"/home/nik/document/plants/DataBase.py",
+		"/home/nik/document/plants/main.py",
+		"/home/nik/.config/sublime-text-2/Packages/User/Preferences.sublime-settings",
+		"/home/nik/document/plants/AddDialog.py",
+		"/home/nik/下载/mathematicalcoffee-maximus-gnome-shell-extension-81c8726964db/Makefile",
+		"/home/nik/document/plants/MainFrame.py",
+		"/home/nik/下载/rungrid.py",
+		"/home/nik/.config/sublime-text-2/Packages/Default/Preferences.sublime-settings",
+		"/home/nik/.config/sublime-text-2/Packages/Python/Python.sublime-build",
+		"/home/nik/document/plants/AddDialog.py~",
+		"/home/nik/data/workspace/py-project/plant-foster-care-system/main.py",
+		"/home/nik/document/plants/plants.sublime-workspace",
+		"/home/nik/document/plants/plants.sublime-project",
+		"/home/nik/data/workspace/py-project/plant-foster-care-system/PlantsmainFrame.py",
+		"/home/nik/data/workspace/py-project/plant-foster-care-system/AddDialog.py",
+		"/home/nik/data/workspace/py-project/plant-foster-care-system/test.py",
+		"/home/nik/data/workspace/py-project/plant-foster-care-system/MainFrame.py",
+		"/usr/lib/python2.7/site-packages/wx-2.8-gtk2-unicode/wx/_windows.py",
+		"/home/nik/data/workspace/py-project/plant-foster-care-system/gui.py",
+		"/home/nik/.gSTM/MyTunnel.8HPKYp.gstm",
+		"/home/nik/.config/sublime-text-2/Packages/User/Default (Linux).sublime-mousemap",
+		"/home/nik/.config/sublime-text-2/Packages/SublimeCodeIntel/Default (Linux).sublime-mousemap",
+		"/home/nik/.config/sublime-text-2/Packages/Default/Default (Linux).sublime-keymap",
+		"/home/nik/.config/sublime-text-2/Packages/SublimeCodeIntel/Base File.sublime-settings",
+		"/data/www/index.php",
+		"/data/workspace/py-project/plant-foster-care-system/main.py",
+		"/data/www/index.html",
+		"/home/nik/文档/untitled.php",
+		"/run/media/nik/WIN7/Users/Fengming Sun/AppData/Roaming/Sublime Text 2/Packages/User/Preferences.sublime-settings",
+		"/run/media/nik/WIN7/Users/Fengming Sun/AppData/Roaming/Sublime Text 2/Packages/User/Default (Linux).sublime-keymap",
+		"/run/media/nik/WIN7/Users/Fengming Sun/AppData/Roaming/Sublime Text 2/Packages/User/Default (Windows).sublime-keymap",
+		"/home/nik/.config/sublime-text-2/Packages/Vintage/vintage_commands.py",
+		"/home/nik/.config/sublime-text-2/Packages/InputHelper/inputhelper.py",
+		"/home/nik/.config/sublime-text-2/Packages/InputHelper/lib/linux_text_input_gui.py",
+		"/home/nik/.config/sublime-text-2/Packages/InputHelper/README.md",
+		"/home/nik/.config/sublime-text-2/Packages/InputHelper/inputhelper.pyc",
+		"/home/nik/.config/sublime-text-2/Packages/User/Default (Linux).sublime-keymap",
+		"/home/nik/.config/sublime-text-2/Packages/InputHelper/Default (Linux).sublime-keymap"
+	],
+	"find":
+	{
+		"height": 34.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"grid",
+			"mainGid",
+			"()\n",
+			"wrap",
+			"\n",
+			"THICK_FRAME",
+			"Tkinter",
+			"space"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": true,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "MainFrame.py",
+					"settings":
+					{
+						"buffer_size": 4820,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2174,
+								2174
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "MainGrid.py",
+					"settings":
+					{
+						"buffer_size": 1078,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1075,
+								1075
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "EditDialog.py",
+					"settings":
+					{
+						"buffer_size": 527,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								95,
+								95
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "main.py",
+					"settings":
+					{
+						"buffer_size": 487,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								310,
+								310
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "AddDialog.py",
+					"settings":
+					{
+						"buffer_size": 3338,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3046,
+								3046
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 504.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 36.0
+	},
+	"input":
+	{
+		"height": 32.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 108.0
+	},
+	"replace":
+	{
+		"height": 62.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"f",
+				"MainFrame.py"
+			],
+			[
+				"ad",
+				"AddDialog.py"
+			],
+			[
+				"",
+				"MainFrame.py"
+			],
+			[
+				"mai",
+				"main.py"
+			],
+			[
+				"add",
+				"AddDialog.py"
+			],
+			[
+				"m",
+				"main.py"
+			],
+			[
+				"ma",
+				"main.py"
+			],
+			[
+				"a",
+				"AddDialog.py"
+			],
+			[
+				"main",
+				"MainFrame.py"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"show_minimap": false,
+	"show_open_files": true,
+	"show_tabs": false,
+	"side_bar_visible": true,
+	"side_bar_width": 177.0,
+	"status_bar_visible": true
+}
