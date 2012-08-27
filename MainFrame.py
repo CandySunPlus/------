@@ -39,6 +39,7 @@ class MainFrame(wx.Frame):
         # Menu Bar end
         self.mainStatusBar = self.CreateStatusBar(1, wx.ST_SIZEGRIP)
         self.mainGrid = MainGrid(self)
+        self.mainGrid.setColWidthProportions([0.06, 0.08, 0.1, 0.12, 0.17, 0.27, 0.2])
         self.labelSearch = wx.StaticText(self, -1, u"电话号码搜索：")
         self.txtSearch = wx.TextCtrl(self, -1, "")
         self.btnSearch = wx.Button(self, -1, u"搜索(&S)")
@@ -84,7 +85,6 @@ class MainFrame(wx.Frame):
         self.mainGrid.SetColLabelValue(5, u"地址")
         self.mainGrid.SetColLabelValue(6, u"寄养时状况")
         self.mainGrid.SetMinSize((800, 300))
-        self.mainGrid.setColWidthProportions([0.06, 0.08, 0.1, 0.12, 0.17, 0.27, 0.2])
         self.mainGrid.SetCellHighlightPenWidth(0)
         self.mainGrid.SetRowLabelSize(30)
         self.txtSearch.SetMinSize((200, -1))
