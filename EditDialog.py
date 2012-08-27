@@ -45,7 +45,10 @@ class EditDialog(AddDialog):
             return None
         dataBase.update(plant, index)
         self.Close()
-        self.GetParent().loadData()
+        if True == self.GetParent().isSearch:
+            self.GetParent().loadFindData()
+        else:
+            self.GetParent().loadData()
 
     def onDelete(self, event):
         index = self.id
@@ -53,5 +56,8 @@ class EditDialog(AddDialog):
         message = wx.MessageDialog(self, u"确认删除本条信息么？", u"删除确认")
         if message.ShowModal() == wx.ID_OK:
             dataBase.delete(index)
-            self.GetParent().loadData()
             self.Close()
+            if True == self.GetParent().isSearch:
+                self.GetParent().loadFindData()
+            else:
+                self.GetParent().loadData()

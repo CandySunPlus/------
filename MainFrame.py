@@ -22,7 +22,6 @@ class MainFrame(wx.Frame):
         # begin wxGlade: MainFrame.__init__
         kwds["style"] = wx.DEFAULT_FRAME_STYLE
         wx.Frame.__init__(self, *args, **kwds)
-
         # Menu Bar
         self.mainMenuBar = wx.MenuBar()
         self.menuFile = wx.Menu()
@@ -51,13 +50,21 @@ class MainFrame(wx.Frame):
         self.__do_layout()
 
         self.Bind(wx.EVT_MENU, self.onAddNew, self.menuNew)
+        self.Bind(wx.EVT_MENU, self.onExit, self.menuExit)
+        self.Bind(wx.EVT_MENU, self.onAbout, self.menuAbout)
+        self.Bind(wx.EVT_BUTTON, self.onNext, self.btnNext)
+        self.Bind(wx.EVT_BUTTON, self.onPrev, self.btnPrev)
+        self.Bind(wx.EVT_BUTTON, self.onSearch, self.btnSearch)
 
+        self.page = 1
+        self.searchPage = 1
+        self.isSearch = False
         self.loadData()
         # end wxGlade
 
     def __set_properties(self):
         # begin wxGlade: MainFrame.__set_properties
-        self.SetTitle(u"花木寄养管理系统")
+        self.SetTitle(u"花木寄养管理系统 v0.1 - MLN Studio")
         self.mainStatusBar.SetStatusWidths([-1])
         # statusbar fields
         mainStatusBar_fields = [u"花木寄养管理系统"]
@@ -65,7 +72,7 @@ class MainFrame(wx.Frame):
             self.mainStatusBar.SetStatusText(mainStatusBar_fields[i], i)
 
         #self.mainGrid.AutoSizeColumns(False)
-        self.mainGrid.CreateGrid(40, 7)
+        self.mainGrid.CreateGrid(DataBase().numberOfPage, 7)
         self.mainGrid.EnableEditing(0)
         self.mainGrid.EnableDragRowSize(0)
         self.mainGrid.SetSelectionMode(wx.grid.Grid.wxGridSelectRows)
@@ -77,7 +84,7 @@ class MainFrame(wx.Frame):
         self.mainGrid.SetColLabelValue(5, u"地址")
         self.mainGrid.SetColLabelValue(6, u"寄养时状况")
         self.mainGrid.SetMinSize((800, 300))
-        self.mainGrid.setColWidthProportions([0.08, 0.08, 0.1, 0.1, 0.14, 0.3, 0.2])
+        self.mainGrid.setColWidthProportions([0.06, 0.08, 0.1, 0.12, 0.17, 0.27, 0.2])
         self.mainGrid.SetCellHighlightPenWidth(0)
         self.mainGrid.SetRowLabelSize(30)
         self.txtSearch.SetMinSize((200, -1))
@@ -105,11 +112,70 @@ class MainFrame(wx.Frame):
         self.mainGrid.fixWidth()
         # end wxGlade
 
-    def loadData(self):
+    def loadData(self, page=None):
         self.mainGrid.ClearGrid()
         dataBase = DataBase()
-        cur = dataBase.fetch()
+        if None == page:
+            page = self.page
+        self.page = page
+        self.pageNumber = dataBase.getPage()
+        self.btnNext.Enable(True)
+        self.btnPrev.Enable(True)
+        self.labelPage.SetLabel(u"共%s页 当前第%s页" % (self.pageNumber, page))
+
+        if self.pageNumber == page:
+            self.btnNext.Enable(False)
+        if page == 1:
+            self.btnPrev.Enable(False)
+
+        cur = dataBase.fetch(page)
         data = cur.fetchall()
+
+        #此页没有数据，加载上一页
+        if len(data) <= 0 and page > 1:
+            self.loadData(page - 1)
+
+        row = 0
+        cell = -1
+        for item in data:
+            for value in item:
+                if cell == -1:
+                    cell = cell + 1
+                    self.mainGrid.setRowAttachmentData(row, value)
+                    continue
+                self.mainGrid.SetCellValue(row, cell, "%s" % value)
+                cell = cell + 1
+            cell = -1
+            row = row + 1
+        row = 0
+        self.mainGrid.Refresh()
+
+    def loadFindData(self, telephone=None, page=None):
+        self.mainGrid.ClearGrid()
+        dataBase = DataBase()
+        if None == telephone:
+            telephone = self.searchText
+        if None == page:
+            page = self.searchPage
+        self.searchPage = page
+        self.pageNumber = dataBase.getFindPage(telephone)
+        self.btnNext.Enable(True)
+        self.btnPrev.Enable(True)
+        self.labelPage.SetLabel(u"共%s页 当前第%s页" % (self.pageNumber, page))
+
+        if self.pageNumber == page:
+            self.btnNext.Enable(False)
+        if page == 1:
+            self.btnPrev.Enable(False)
+
+        cur = dataBase.find(telephone, page)
+        data = cur.fetchall()
+
+        #此页没有数据，加载上一页
+        if len(data) <= 0 and page > 1:
+            print telephone
+            self.loadFindData(telephone, page - 1)
+
         row = 0
         cell = -1
         for item in data:
@@ -129,6 +195,53 @@ class MainFrame(wx.Frame):
         addDialog = AddDialog(self)
         addDialog.ShowModal()
         addDialog.Destroy()
+
+    def onNext(self, event):
+        event.Skip()
+        if True == self.isSearch:
+            self.loadFindData(self.searchText, self.searchPage + 1)
+        else:
+            self.loadData(self.page + 1)
+
+    def onPrev(self, event):
+        event.Skip()
+        if True == self.isSearch:
+            self.loadFindData(self.searchText, self.searchPage - 1)
+        else:
+            self.loadData(self.page - 1)
+
+    def onSearch(self, event):
+        event.Skip()
+        if False == self.isSearch:
+            self.searchText = self.txtSearch.GetValue().strip()
+            if len(self.searchText) == 0:
+                alert = wx.MessageDialog(self, u"查询内容不得为空！", u"查询失败", wx.OK | wx.CENTER)
+                alert.ShowModal()
+                alert.Destroy()
+                return None
+            else:
+                self.isSearch = True
+                self.loadFindData(self.searchText)
+                self.btnSearch.SetLabel(u"重置(&C)")
+        else:
+            self.isSearch = False
+            self.searchText = ''
+            self.searchPage = 1
+            self.txtSearch.SetValue(u"")
+            self.btnSearch.SetLabel(u"搜索(&S)")
+            self.loadData()
+
+    def onExit(self, event):
+        event.Skip()
+        self.Close()
+        self.Destroy()
+
+    def onAbout(self, event):
+        event.Skip()
+        message = u"花木寄养管理系统 v0.1 \n Powered by Nik Sun from MLN Studio in 2012 \n"
+        dialog = wx.MessageDialog(self, message, u"关于", wx.OK | wx.CENTER)
+        dialog.ShowModal()
+        dialog.Destroy()
 
 
 # end of class MainFrame

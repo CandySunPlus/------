@@ -14,6 +14,7 @@ class DataBase():
         self.db = sqlite3.connect(os.path.join('.', 'db.db3'))
         self.db.isolation_level = None
         self.createTable()
+        self.numberOfPage = 40
 
     def createTable(self):
         self.db.execute("CREATE TABLE IF NOT EXISTS main.Plants (id INTEGER PRIMARY KEY AUTOINCREMENT, number TEXT,username TEXT,type TEXT,telephone TEXT,adddate INTEGER,address TEXT,info TEXT)")
@@ -32,12 +33,46 @@ class DataBase():
         return cur
 
     def fetch(self, page=1):
-        pageNum = 40
-        offset = (page - 1) * pageNum
-        sql = 'SELECT * FROM main.Plants limit %s,40' % (offset)
+        offset = (page - 1) * self.numberOfPage
+        sql = 'SELECT * FROM main.Plants limit %s,%s' % (offset, self.numberOfPage)
         cur = self.db.cursor()
         cur.execute(sql)
         return cur
+
+    def find(self, telephone, page=1):
+        offset = (page - 1) * self.numberOfPage
+        sql = 'SELECT * FROM main.Plants WHERE telephone="%s" limit %s,%s' % (telephone, offset, self.numberOfPage)
+        cur = self.db.cursor()
+        cur.execute(sql)
+        return cur
+
+    def getFindPage(self, telephone):
+        sql = 'SELECT COUNT(*) AS count FROM main.Plants WHERE telephone="%s"' % (telephone)
+        cur = self.db.cursor()
+        cur.execute(sql)
+        data = cur.fetchone()
+
+        if data[0] < self.numberOfPage:
+            return 1
+        else:
+            page = data[0] // self.numberOfPage
+            if (data[0] % self.numberOfPage) > 0:
+                page = page + 1
+            return page
+
+    def getPage(self):
+        sql = 'SELECT COUNT(*) AS count FROM main.Plants'
+        cur = self.db.cursor()
+        cur.execute(sql)
+        data = cur.fetchone()
+
+        if data[0] < self.numberOfPage:
+            return 1
+        else:
+            page = data[0] // self.numberOfPage
+            if (data[0] % self.numberOfPage) > 0:
+                page = page + 1
+            return page
 
     def update(self, plant, index):
         sql = 'UPDATE main.Plants SET number="%s", username="%s", address="%s", telephone="%s", type="%s", info="%s" WHERE id=%s' % (plant['number'], plant['username'], plant['address'], plant['telephone'], plant['type'], plant['info'], index)
