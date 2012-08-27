@@ -237,7 +237,6 @@ class MainFrame(wx.Frame):
         self.Destroy()
 
     def onAbout(self, event):
-        event.Skip()
         message = u"花木寄养管理系统 v0.1 \n Powered by Nik Sun from MLN Studio in 2012 \n"
         dialog = wx.MessageDialog(self, message, u"关于", wx.OK | wx.CENTER)
         dialog.ShowModal()
