@@ -56,8 +56,8 @@ class MainGrid(wx.grid.Grid):
         index = self.getRowAttachmentData(event.GetRow())
 
         if index != None:
-            plant = Plants.get(index)
             editDialog = EditDialog(self.GetParent())
+            plant = Plants.get(index, editDialog)
             editDialog.row = event.GetRow()
             editDialog.setPlant(plant)
             editDialog.id = index

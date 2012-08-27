@@ -28,25 +28,30 @@ class EditDialog(AddDialog):
         self.Layout()
 
     def setPlant(self, plant):
-        self.labelDate.SetLabel(u"寄养时间：" + "%s" % plant.date)
-        self.txtNumber.SetValue("%s" % plant.number)
-        self.txtName.SetValue("%s" % plant.username)
-        self.txtAddress.SetValue("%s" % plant.address)
-        self.txtPhone.SetValue("%s" % plant.telephone)
-        self.txtType.SetValue("%s" % plant.type)
-        self.txtInfo.SetValue("%s" % plant.info)
+        self.labelDate.SetLabel(u"寄养时间：" + "%s" % plant['adddate'])
+        self.txtNumber.SetValue("%s" % plant['number'])
+        self.txtName.SetValue("%s" % plant['username'])
+        self.txtAddress.SetValue("%s" % plant['address'])
+        self.txtPhone.SetValue("%s" % plant['telephone'])
+        self.txtType.SetValue("%s" % plant['type'])
+        self.txtInfo.SetValue("%s" % plant['info'])
 
     def onSave(self, event):
         index = self.id
         dataBase = DataBase()
-        plant = Plants.getByDialog(self)
+        try:
+            plant = Plants.getByDialog(self)
+        except:
+            return None
         dataBase.update(plant, index)
-        self.GetParent().loadData()
         self.Close()
+        self.GetParent().loadData()
 
     def onDelete(self, event):
         index = self.id
         dataBase = DataBase()
-        dataBase.delete(index)
-        self.GetParent().loadData()
-        self.Close()
+        message = wx.MessageDialog(self, u"确认删除本条信息么？", u"删除确认")
+        if message.ShowModal() == wx.ID_OK:
+            dataBase.delete(index)
+            self.GetParent().loadData()
+            self.Close()

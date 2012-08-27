@@ -74,8 +74,11 @@ class AddDialog(wx.Dialog):
 
     def onSave(self, event):
         dataBase = DataBase()
-        plants = Plants.getByDialog(self)
-        dataBase.addNew(plants)
+        try:
+            plant = Plants.getByDialog(self)
+        except:
+            return None
+        dataBase.addNew(plant)
         self.Close()
         self.GetParent().loadData()
 
