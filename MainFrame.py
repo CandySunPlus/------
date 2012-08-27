@@ -22,6 +22,8 @@ class MainFrame(wx.Frame):
         # begin wxGlade: MainFrame.__init__
         kwds["style"] = wx.DEFAULT_FRAME_STYLE
         wx.Frame.__init__(self, *args, **kwds)
+        self.icon = wx.Icon('icon.ico', wx.BITMAP_TYPE_ICO)
+        self.SetIcon(self.icon)
         # Menu Bar
         self.mainMenuBar = wx.MenuBar()
         self.menuFile = wx.Menu()
