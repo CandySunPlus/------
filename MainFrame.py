@@ -15,12 +15,14 @@ from MainGrid import MainGrid
 
 reload(sys)
 sys.setdefaultencoding('utf-8')
+
+
 class MainFrame(wx.Frame):
     def __init__(self, *args, **kwds):
         # begin wxGlade: MainFrame.__init__
         kwds["style"] = wx.DEFAULT_FRAME_STYLE
         wx.Frame.__init__(self, *args, **kwds)
-        
+
         # Menu Bar
         self.mainMenuBar = wx.MenuBar()
         self.menuFile = wx.Menu()
@@ -74,11 +76,11 @@ class MainFrame(wx.Frame):
         self.mainGrid.SetColLabelValue(4, u"寄养日期")
         self.mainGrid.SetColLabelValue(5, u"花木品种")
         self.mainGrid.SetColLabelValue(6, u"寄养时状况")
-        self.mainGrid.SetMinSize((800,300))
+        self.mainGrid.SetMinSize((800, 300))
         self.mainGrid.setColWidthProportions([0.1, 0.1, 0.3, 0.1, 0.1, 0.1, 0.2])
         self.mainGrid.SetCellHighlightPenWidth(0)
         self.mainGrid.SetRowLabelSize(30)
-        self.txtSearch.SetMinSize((200,-1))
+        self.txtSearch.SetMinSize((200, -1))
         self.btnSearch.SetMinSize((60, -1))
         # end wxGlade
 
@@ -96,7 +98,7 @@ class MainFrame(wx.Frame):
         controlSizer.Add(self.btnNext, 0, wx.LEFT | wx.RIGHT, 5)
         mainSizer.Add(controlSizer, 0, wx.ALL | wx.EXPAND, 5)
         self.SetSizer(mainSizer)
-        mainSizer.Fit(self)        
+        mainSizer.Fit(self)
         self.Layout()
         mainSize = self.GetSize()
         self.SetMinSize(mainSize)
@@ -122,12 +124,11 @@ class MainFrame(wx.Frame):
             row = row + 1
         row = 0
         self.mainGrid.Refresh()
-        
 
     def onAddNew(self, event):  # wxGlade: MainFrame.<event_handler>
         addDialog = AddDialog(self)
         addDialog.ShowModal()
-        addDialog.Destroy()    
+        addDialog.Destroy()
 
 
 # end of class MainFrame

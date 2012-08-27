@@ -5,6 +5,7 @@
 import wx
 from MainFrame import MainFrame
 
+
 class mainApp(wx.App):
     def OnInit(self):
         wx.InitAllImageHandlers()

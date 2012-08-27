@@ -42,8 +42,8 @@ class AddDialog(wx.Dialog):
     def __set_properties(self):
         # begin wxGlade: AddDialog.__set_properties
         self.SetTitle(u"添加新寄养")
-        self.txtAddress.SetMinSize((300,50))
-        self.txtInfo.SetMinSize((300,50))
+        self.txtAddress.SetMinSize((300, 50))
+        self.txtInfo.SetMinSize((300, 50))
         # end wxGlade
 
     def __do_layout(self):
@@ -78,7 +78,7 @@ class AddDialog(wx.Dialog):
         dataBase.addNew(plants)
         self.Close()
         self.GetParent().loadData()
-        
+
     def onCancel(self, event):
         self.Close()
 

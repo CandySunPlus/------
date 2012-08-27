@@ -9,6 +9,7 @@ from DataBase import Plants
 reload(sys)
 sys.setdefaultencoding('utf-8')
 
+
 class MainGrid(wx.grid.Grid):
     def __init__(self, parent):
         wx.grid.Grid.__init__(self, parent, id=-1)
@@ -42,6 +43,10 @@ class MainGrid(wx.grid.Grid):
     def resetRowAttachmentData(self):
         self.rowAttachmentData = []
 
+    def ClearGrid(self):
+        wx.grid.Grid.ClearGrid(self)
+        self.resetRowAttachmentData()
+
     def onResize(self, event):
         event.Skip()
         self.fixWidth()
@@ -60,5 +65,3 @@ class MainGrid(wx.grid.Grid):
             editDialog.Destroy()
         else:
             return None
-
-
