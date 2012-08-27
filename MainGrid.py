@@ -15,6 +15,7 @@ class MainGrid(wx.grid.Grid):
         wx.grid.Grid.__init__(self, parent, id=-1)
         self.rowAttachmentData = []
         self.Bind(wx.EVT_SIZE, self.onResize, self)
+        self.colWidthProportions = []
         wx.grid.EVT_GRID_CELL_LEFT_DCLICK(self, self.onDClickGrid)
 
     def setColWidthProportions(self, proportions):
